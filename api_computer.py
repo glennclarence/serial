@@ -1,6 +1,6 @@
 import serial
 import pandas as pd
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import numpy as np
 from time import sleep
 from dataclasses import dataclass
@@ -87,10 +87,10 @@ class Message:
    #    return str.encode(self.m_message)
    
    def __init__(self,serial_device_name ):
-      self.m_message = {"dev":serial_device_name}
+      self.m_message = {"dev":serial_device_name,'data':{}}
 
    def append(self, key, value):
-      self.m_message[key] = value
+      self.m_message['data'][key] = value
 
    def hand_over(self):
       return str.encode("#{}\n".format(self.m_message))
